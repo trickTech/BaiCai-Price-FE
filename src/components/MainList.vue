@@ -1,10 +1,10 @@
 <template>
   <div class="main-list">
-    <div class="cell">
-      <span>菜名</span>
-      <span class="right">最高价</span>
-      <span class="right">最低价</span>
-      <span class="right">平均价</span>
+    <div class="cell" v-for="data in dataList">
+      <span>{{data.veg_name}}</span>
+      <span class="right">￥{{data.avg_price/100}}</span>
+      <span class="right">￥{{data.highest_price/100}}</span>
+      <span class="right">￥{{data.lowest_price/100}}</span>
     </div>
   </div>
 </template>
@@ -32,13 +32,23 @@
 <script>
 
   import API from '../config/request'
+  import $ from 'jquery'
 
   export default{
-    data(){
+    data () {
       return {
-        msg: 'hello vue'
+        dataList: []
       }
+    },
+    mounted () {
+      let _this = this;
+      $.ajax({
+        url: API.vegetable,
+        success (res) {
+          console.log(res);
+          _this.dataList = res.content;
+        }
+      })
     }
-
   }
 </script>
