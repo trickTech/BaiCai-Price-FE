@@ -32,6 +32,10 @@ module.exports = {
         loader: 'vue'
       },
       {
+        test: /vux.src.*?js$/,
+        loader: 'babel'
+      },
+      {
         test: /\.js$/,
         loader: 'babel',
         include: projectRoot,
