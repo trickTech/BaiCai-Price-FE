@@ -30,14 +30,14 @@
   }
 </style>
 <script>
-
-  import API from '../config/request'
-  import $ from 'jquery'
+  import API from '../config/request';
+  import $ from 'jquery';
 
   export default{
     data () {
       return {
-        dataList: []
+        dataList: [],
+        isNull: false
       }
     },
     mounted () {
@@ -46,6 +46,10 @@
         url: API.vegetable,
         success (res) {
           console.log(res);
+          if(res.content.length == 0){
+
+            _this.isNull = true;
+          }
           _this.dataList = res.content;
         }
       })
