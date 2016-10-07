@@ -19,7 +19,13 @@
       changeNav (newNav) {
         switch (newNav) {
           case 1:
-            this.$router.forward('/error');
+            this.$router.replace('/unable');
+            break;
+          case 2:
+            this.$router.replace('/unable');
+            break;
+          case 3:
+            this.$router.replace('/unable');
             break;
           case 4:
             this.$router.replace('/about');
@@ -36,6 +42,9 @@
             this.status = 0;
             break;
           case '/about':
+            this.status = 1;
+            break;
+          default:
             this.status = 1;
             break;
         }
@@ -63,9 +72,10 @@
     box-sizing: border-box;
     color: white;
 
-    &:active {
-      background: darkseagreen;
-    }
+  &
+  :active {
+    background: darkseagreen;
+  }
 
   }
 </style>

@@ -10,12 +10,14 @@
   import vHeader from './components/Header'
   import vList from './components/MainList'
   import vTab from './components/BottomTab'
+  import vUnable from './components/Unable'
 
   export default {
     components: {
       vHeader,
       vList,
-      vTab
+      vTab,
+      vUnable
     }
   }
 </script>

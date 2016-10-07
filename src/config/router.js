@@ -4,6 +4,7 @@
 import Error from '../components/Error'
 import About from '../components/AboutInfo'
 import Main from '../components/MainList'
+import Unable from '../components/Unable'
 
 const routes = [
   {
@@ -17,6 +18,10 @@ const routes = [
   {
     path: '/',
     component: Main
+  },
+  {
+    path: '/unable',
+    component: Unable
   }
 ]
 
