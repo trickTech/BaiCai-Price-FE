@@ -2,19 +2,20 @@
   <div id="app">
     <v-header></v-header>
     <v-list></v-list>
+    <v-tab></v-tab>
   </div>
 </template>
 
 <script>
-  import Hello from './components/Hello'
   import vHeader from './components/Header'
   import vList from './components/MainList'
+  import vTab from './components/BottomTab'
 
   export default {
     components: {
-      Hello,
       vHeader,
-      vList
+      vList,
+      vTab
     }
   }
 </script>
@@ -30,7 +31,6 @@
   }
 
   body {
-    min-height: 100%;
     text-align: center;
   }
 
