@@ -7,9 +7,9 @@
     </div>
     <div class="cell">
       <span>蔬菜名</span>
-      <span class="right">最低价</span>
-      <span class="right">最高价</span>
       <span class="right">平均价</span>
+      <span class="right">最高价</span>
+      <span class="right">最低价</span>
     </div>
   </div>
 </template>
