@@ -3,7 +3,7 @@
     <v-header></v-header>
     <router-view></router-view>
     <v-tab></v-tab>
-    <v-pop-up></v-pop-up>
+    <!--<v-pop-up></v-pop-up>-->
   </div>
 </template>
 
