@@ -1,12 +1,12 @@
 <template>
   <div class="mask">
     <div class="content">
-      <h1>你好</h1>
+      <v-sort-select></v-sort-select>
     </div>
   </div>
 </template>
 
-<style>
+<style scoped>
   .mask{
     position: fixed;
     left: 0;
@@ -28,3 +28,13 @@
   }
 
 </style>
+
+<script>
+  import vSortSelect from './SortSelect'
+
+  export default{
+    components: {
+      vSortSelect
+    }
+  }
+</script>

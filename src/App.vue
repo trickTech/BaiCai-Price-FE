@@ -3,6 +3,7 @@
     <v-header></v-header>
     <router-view></router-view>
     <v-tab></v-tab>
+    <v-pop-up></v-pop-up>
   </div>
 </template>
 
@@ -11,13 +12,15 @@
   import vList from './components/MainList'
   import vTab from './components/BottomTab'
   import vUnable from './components/Unable'
+  import vPopUp from './components/PopUp'
 
   export default {
     components: {
       vHeader,
       vList,
       vTab,
-      vUnable
+      vUnable,
+      vPopUp
     }
   }
 </script>
