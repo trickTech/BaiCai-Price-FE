@@ -12,10 +12,8 @@
 </template>
 <style lang="less" scoped>
   .about-container {
-    margin-top: 76.33px;
     text-align: center;
     padding: 10px;
-    margin-bottom: 50px;
 
     p {
       text-align: left;

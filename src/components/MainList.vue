@@ -10,7 +10,6 @@
 </template>
 <style lang="less" scoped>
   .main-list {
-    margin-top: 76.333px;
 
     .cell {
       border-bottom: 1px solid green;
