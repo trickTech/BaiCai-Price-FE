@@ -37,17 +37,23 @@
     data () {
       return {
         dataList: [],
-        isNull: false
+        isNull: false,
+        totalPage: 1
       }
     },
     mounted () {
       let _this = this;
-      var page = 1;
+      let page = 1;
+
+      request(API.vegetable, page, _this);
 
       window.onscroll = function () {
-        if (getDocumentTop() + getWindowHeight() == getScrollTop()) {
+        if (getDocumentTop() + getWindowHeight() == getScrollTop() && page != _this.totalPage) {
           page++;
           request(API.vegetable, page, _this);
+        }else if (page == _this.totalPage) {
+          //TODO: 拉到底的处理
+          console.log('已经是最后一页了');
         }
       }
     }
@@ -63,7 +69,8 @@
         if(res.content.length == 0){
           _this.isNull = true;
         }
-        _this.dataList = res.content;
+        _this.totalPage = res.total_page;
+        _this.dataList = _this.dataList.concat(res.content);
       }
     });
   }
