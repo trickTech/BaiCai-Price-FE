@@ -34,7 +34,7 @@
 
   body {
     text-align: center;
-    padding-top: 77px;
+    padding-top: 100px;
     padding-bottom: 50px;
   }
 

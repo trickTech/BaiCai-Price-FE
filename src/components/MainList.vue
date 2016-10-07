@@ -13,10 +13,9 @@
 
     .cell {
       border-bottom: 1px solid green;
-      /*height: 40px;*/
-      font-size: 18px;
+      font-size: 16px;
       text-align: left;
-      padding: 16px 10px;
+      padding: 12px 10px;
 
       span {
         margin-right: 5px;
