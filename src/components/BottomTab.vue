@@ -19,25 +19,25 @@
       changeNav (newNav) {
         switch (newNav) {
           case 1:
-                this.$router.forward('/error');
-                break;
+            this.$router.forward('/error');
+            break;
           case 4:
-                this.$router.replace('/about');
-                break;
+            this.$router.replace('/about');
+            break;
           case 5:
-                this.$router.replace('/');
-                break;
+            this.$router.replace('/');
+            break;
         }
         this.whereAmI();
       },
       whereAmI () {
-        switch (this.$route.path){
+        switch (this.$route.path) {
           case '/':
-                this.status = 0;
-                break;
+            this.status = 0;
+            break;
           case '/about':
-                this.status = 1;
-                break;
+            this.status = 1;
+            break;
         }
       }
     },
@@ -46,14 +46,14 @@
     }
   }
 </script>
-<style>
-  .bottom-tab{
+<style lang="less" scoped>
+  .bottom-tab {
     position: fixed;
     bottom: 0;
     width: 100%;
   }
 
-  .tab{
+  .tab {
     display: inline-block;
     float: left;
     width: 25%;
@@ -63,8 +63,9 @@
     box-sizing: border-box;
     color: white;
 
-    &:active{
-       background: darkseagreen;
-     }
+    &:active {
+      background: darkseagreen;
+    }
+
   }
 </style>
