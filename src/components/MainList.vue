@@ -1,6 +1,6 @@
 <template>
   <div class="main-list" id="main">
-    <div class="cell" v-for="data in dataList">
+    <div class="cell vux-1px-b" v-for="data in dataList">
       <span>{{data.veg_name}}</span>
       <span class="right">￥{{data.avg_price/100}}</span>
       <span class="right">￥{{data.highest_price/100}}</span>
@@ -9,10 +9,10 @@
   </div>
 </template>
 <style lang="less" scoped>
+  @import '~vux/src/styles/1px.less';
   .main-list {
 
     .cell {
-      border-bottom: 1px solid green;
       font-size: 16px;
       text-align: left;
       padding: 12px 10px;
