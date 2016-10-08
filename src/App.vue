@@ -37,7 +37,7 @@
 
   body {
     text-align: center;
-    padding-top: 100px;
+    padding-top: 76.33px;
     padding-bottom: 50px;
   }
 

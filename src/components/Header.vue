@@ -5,12 +5,6 @@
       <input placeholder="Search"/>
       <button class="search-btn">搜索</button>
     </div>
-    <div class="cell">
-      <span>蔬菜名</span>
-      <span class="right">平均价</span>
-      <span class="right">最高价</span>
-      <span class="right">最低价</span>
-    </div>
   </div>
 </template>
 <style lang="less" scoped>
@@ -28,9 +22,7 @@
 
     .search {
       width: 100%;
-      padding: 0;
-
-
+      padding: 1px 0 8px 0;
 
       input {
         width: 80%;
@@ -48,21 +40,6 @@
     }
 
 
-  }
-
-  .cell {
-    border-bottom: 1px solid green;
-    font-size: 16px;
-    text-align: left;
-    padding: 10px 10px 5px 10px;
-
-    span {
-      margin-right: 5px;
-    }
-
-    .right {
-      float: right;
-    }
   }
 </style>
 <script>
