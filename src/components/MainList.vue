@@ -12,11 +12,13 @@
       <span class="right">￥{{data.highest_price/100}}</span>
       <span class="right">￥{{data.lowest_price/100}}</span>
     </div>
+    <loading :show="loading" :text="loadingText"></loading>
   </div>
 </template>
 <style lang="less" scoped>
   @import '~vux/src/styles/1px.less';
   .main-list {
+
     .top-cell {
       width: 100%;
       position: fixed;
@@ -24,6 +26,7 @@
       font-size: 16px;
       text-align: left;
       padding: 10px 0;
+      color: white;
 
       span {
         margin-right: 5px;
@@ -33,6 +36,10 @@
       .right {
         float: right;
       }
+    }
+
+    div:nth-child(2) {
+      padding-top: 50px;
     }
 
     .cell {
@@ -53,23 +60,28 @@
 <script>
   import API from '../config/request';
   import $ from 'jquery';
+  import Loading from 'vux/src/components/loading';
 
   export default{
     data () {
       return {
         dataList: [],
         isNull: false,
-        totalPage: 1
+        totalPage: 1,
+        loading: true,
+        loadingText: '加载中...'
       }
     },
     mounted () {
       let _this = this;
       let page = 1;
+      this.loading = true;
 
       request(API.vegetable, page, _this);
 
       window.onscroll = function () {
         if (getDocumentTop() + getWindowHeight() == getScrollTop() && page != _this.totalPage) {
+          _this.loading = true;
           page++;
           request(API.vegetable, page, _this);
         }else if (page == _this.totalPage) {
@@ -77,6 +89,9 @@
           console.log('已经是最后一页了');
         }
       }
+    },
+    components: {
+      Loading
     }
   }
 
@@ -87,6 +102,7 @@
       data: {page: page},
       success (res) {
 //          console.log(res);
+        _this.loading = false;
         if(res.content.length == 0){
           _this.isNull = true;
         }
