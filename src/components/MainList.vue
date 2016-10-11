@@ -1,6 +1,8 @@
 <template>
   <div class="main-list" id="main">
+
     <div class="top-cell">
+      {{msg}}
       <span>蔬菜名</span>
       <span class="right">平均价</span>
       <span class="right">最高价</span>
@@ -61,6 +63,7 @@
   import API from '../config/request';
   import $ from 'jquery';
   import Loading from 'vux/src/components/loading';
+  import bus from '../util/bus'
 
   export default{
     data () {
@@ -72,10 +75,20 @@
         loadingText: '加载中...'
       }
     },
+    props: ['msg'],
+    methods: {
+      sortSubmit () {
+        console.log();
+      }
+    },
     mounted () {
       let _this = this;
       let page = 1;
       this.loading = true;
+
+      bus.$on('sortsubmit', function (data) {
+        console.log(data)
+      })
 
       request(API.vegetable, page, _this);
 

@@ -3,7 +3,10 @@
     <v-header></v-header>
     <router-view></router-view>
     <v-tab></v-tab>
-    <!--<v-pop-up></v-pop-up>-->
+    <v-pop-up>
+      <component :is="'vSortSelect'"></component>
+    </v-pop-up>
+
   </div>
 </template>
 
@@ -13,6 +16,7 @@
   import vTab from './components/BottomTab'
   import vUnable from './components/Unable'
   import vPopUp from './components/PopUp'
+  import vSortSelect from './components/SortSelect'
 
   export default {
     components: {
@@ -20,7 +24,13 @@
       vList,
       vTab,
       vUnable,
-      vPopUp
+      vPopUp,
+      vSortSelect
+    },
+    data () {
+      return {
+
+      }
     }
   }
 </script>
