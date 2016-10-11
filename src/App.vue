@@ -3,9 +3,9 @@
     <v-header></v-header>
     <router-view></router-view>
     <v-tab></v-tab>
-    <v-pop-up>
-      <component :is="'vSortSelect'"></component>
-    </v-pop-up>
+    <!--<v-pop-up>-->
+      <!--<component :is="'vSortSelect'"></component>-->
+    <!--</v-pop-up>-->
 
   </div>
 </template>

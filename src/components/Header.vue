@@ -2,8 +2,8 @@
   <div class="header">
     <h3>每日菜价</h3>
     <div class="search">
-      <input placeholder="Search"/>
-      <button class="search-btn">搜索</button>
+      <input placeholder="Search" v-model="keyword"/>
+      <button class="search-btn" v-on:click="submitSearch">搜索</button>
     </div>
   </div>
 </template>
@@ -43,10 +43,18 @@
   }
 </style>
 <script>
+  import bus from '../util/bus'
+
   export default{
     data(){
       return {
-        msg: 'hello vue'
+        keyword: ''
+      }
+    },
+    methods: {
+      submitSearch () {
+//        console.log(this.keyword)
+        bus.$emit('searchsubmit', this.keyword)
       }
     }
   }

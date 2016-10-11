@@ -86,17 +86,21 @@
       let page = 1;
       this.loading = true;
 
-      bus.$on('sortsubmit', function (data) {
-        console.log(data)
-      })
+      bus.$on('searchsubmit', function (data) {
+        let params = {
+          veg_name: data
+        };
+        _this.dataList = [];
+        request(API.search, params, 'POST', _this);
+      });
 
-      request(API.vegetable, page, _this);
+      request(API.vegetable, {page: page},'GET', _this);
 
       window.onscroll = function () {
         if (getDocumentTop() + getWindowHeight() == getScrollTop() && page != _this.totalPage) {
           _this.loading = true;
           page++;
-          request(API.vegetable, page, _this);
+          request(API.vegetable, {page: page}, 'GET', _this);
         }else if (page == _this.totalPage) {
           //TODO: 拉到底的处理
           console.log('已经是最后一页了');
@@ -108,19 +112,27 @@
     }
   }
 
-  function request (url, page, _this) {
+  function request (url, data, method, _this) {
     $.ajax({
       url: url,
-      method: "GET",
-      data: {page: page},
+      method: method,
+      data: data,
       success (res) {
-//          console.log(res);
+//        console.log(res);
         _this.loading = false;
         if(res.content.length == 0){
-          _this.isNull = true;
+//          _this.isNull = true;
+          let date = new Date();
+          let historydate = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+ (date.getDate()-1);
+          let data = {
+            page: _this.page,
+            date: historydate
+          };
+          request(API.history, 'GET', data, _this);
         }
         _this.totalPage = res.total_page;
         _this.dataList = _this.dataList.concat(res.content);
+//        console.log(_this.dataList);
       }
     });
   }
