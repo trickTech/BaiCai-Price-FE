@@ -17,8 +17,8 @@
   export default{
     methods: {
       submitSort () {
-        console.log(1);
-        bus.$emit('sortsubmit','success');
+//        console.log(1);
+//        bus.$emit('sortsubmit','success');
       }
     },
     mounted: {

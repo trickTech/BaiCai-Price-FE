@@ -86,6 +86,7 @@
       let page = 1;
       this.loading = true;
 
+      //监听搜索框输入值,发送请求进行查询
       bus.$on('searchsubmit', function (data) {
         let params = {
           veg_name: data
@@ -94,6 +95,7 @@
         request(API.search, params, 'POST', _this);
       });
 
+      //请求当日数据
       request(API.vegetable, {page: page},'GET', _this);
 
       window.onscroll = function () {
@@ -118,10 +120,14 @@
       method: method,
       data: data,
       success (res) {
-//        console.log(res);
         _this.loading = false;
+
+        //如果返回内容为空,重新加载前一天的数据
+        //TODO: 搜索返回内容为空时
+        //TODO: 历史内容返回也为空时
+        //TODO: 搜索完成后返回的问题
+
         if(res.content.length == 0){
-//          _this.isNull = true;
           let date = new Date();
           let historydate = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+ (date.getDate()-1);
           let data = {
