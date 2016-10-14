@@ -2,28 +2,42 @@
   <div class="content" >
     <br>
     <h3>排序选项</h3><br>
-    <span class="sort-btn" v-on:click="low">按最低价</span>
-    <span class="sort-btn" v-on:click="hig">按最高价</span>
-    <span class="sort-btn" v-on:click="avg">按平均价</span><br><br>
-    <span class="sort-btn" v-on:click="htl">从高到低</span>
-    <span class="sort-btn" v-on:click="lth">从低到高</span><br><br>
+    <span class="sort-btn" v-for="(option, index) in optionList" v-bind:class="{'select-active': firstOption==index || secondOption==index}" v-on:click="select_act(index)">{{option}}</span>
+    <br>
     <span class="sort-btn" v-on:click="submitSort">确定</span><br>
   </div>
 </template>
 
 <script>
   import bus from '../util/bus'
+  import $ from 'jquery'
 
   export default{
-    methods: {
-      submitSort () {
-//        console.log(1);
-//        bus.$emit('sortsubmit','success');
+    data () {
+      return {
+        optionList: ['最低价', '最高价', '平均价', '从高到低', '从低到高'],
+        firstOption: 0,
+        secondOption: 3
       }
     },
-    mounted: {
+    methods: {
+      select_act (data) {
+//        console.log(data);
+        if (data < 3 && data != this.firstOption) {
+          this.firstOption = data;
+        }
 
+        if (data > 2 && data != this.secondOption) {
+          this.secondOption = data;
+        }
 
+      },
+      submitSort () {
+        bus.$emit('sortsubmit', this.firstOption, this.secondOption);
+      }
+    },
+    mounted () {
+//      console.log(this.active[0])
     }
   }
 </script>
@@ -43,4 +57,7 @@
     margin: 5px;
   }
 
+  .select-active{
+    background: darkseagreen;
+  }
 </style>

@@ -76,15 +76,14 @@
       }
     },
     props: ['msg'],
-    methods: {
-      sortSubmit () {
-        console.log();
-      }
-    },
     mounted () {
       let _this = this;
       let page = 1;
       this.loading = true;
+
+      bus.$on('sortsubmit', function (first, second) {
+        console.log(first + ' ' + second)
+      });
 
       //监听搜索框输入值,发送请求进行查询
       bus.$on('searchsubmit', function (data) {
