@@ -9,7 +9,7 @@
       <span class="right">最低价</span>
     </div>
     <div class="cell vux-1px-b" v-for="data in dataList">
-      <span>{{data.veg_name}}</span>
+      <span>{{data.item_name}}</span>
       <span class="right">￥{{data.avg_price/100}}</span>
       <span class="right">￥{{data.highest_price/100}}</span>
       <span class="right">￥{{data.lowest_price/100}}</span>
@@ -81,6 +81,7 @@
       let page = 1;
       this.loading = true;
 
+      //监听提交的排序信息
       bus.$on('sortsubmit', function (first, second) {
         console.log(first + ' ' + second)
       });
@@ -119,6 +120,7 @@
       method: method,
       data: data,
       success (res) {
+        console.log(res)
         _this.loading = false;
 
         //如果返回内容为空,重新加载前一天的数据

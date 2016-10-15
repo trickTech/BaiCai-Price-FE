@@ -1,5 +1,5 @@
 <template>
-  <div class="mask">
+  <div class="mask" v-show="isShow">
     <div class="content">
       <v-sort-select></v-sort-select>
     </div>
@@ -31,10 +31,27 @@
 
 <script>
   import vSortSelect from './SortSelect'
+  import bus from '../util/bus'
 
   export default{
     components: {
       vSortSelect
+    },
+    data () {
+      return {
+        isShow: false
+      }
+    },
+    mounted () {
+      let _this = this;
+
+      bus.$on('isShow', function (isshow) {
+        _this.isShow = isshow;
+        console.log(_this.isShow);
+      });
+      bus.$on('changeFales', function (ishide) {
+        _this.isShow = ishide;
+      });
     }
   }
 </script>

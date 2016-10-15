@@ -34,6 +34,7 @@
       },
       submitSort () {
         bus.$emit('sortsubmit', this.firstOption, this.secondOption);
+        bus.$emit('changeFales', false);
       }
     },
     mounted () {

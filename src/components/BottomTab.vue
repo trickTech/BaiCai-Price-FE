@@ -9,6 +9,8 @@
 </template>
 <script>
 
+  import bus from '../util/bus'
+
   export default {
     data () {
       return {
@@ -19,7 +21,7 @@
       changeNav (newNav) {
         switch (newNav) {
           case 1:
-            this.$router.replace('/unable');
+            bus.$emit('isShow', true);
             break;
           case 2:
             this.$router.replace('/unable');

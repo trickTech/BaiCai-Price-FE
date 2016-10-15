@@ -3,7 +3,7 @@
     <v-header></v-header>
     <router-view></router-view>
     <v-tab></v-tab>
-    <v-pop-up v-if="isShow">
+    <v-pop-up>
       <component :is="'vSortSelect'"></component>
     </v-pop-up>
 
@@ -29,7 +29,7 @@
     },
     data () {
       return {
-        isShow: false
+
       }
     }
   }
