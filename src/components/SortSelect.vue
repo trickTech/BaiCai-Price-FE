@@ -15,7 +15,7 @@
   export default{
     data () {
       return {
-        optionList: ['最低价', '最高价', '平均价', '从高到低', '从低到高'],
+        optionList: ['最低价', '最高价', '平均价', '从低到高', '从高到低'],
         firstOption: 0,
         secondOption: 3
       }

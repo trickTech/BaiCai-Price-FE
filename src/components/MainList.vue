@@ -84,6 +84,23 @@
       //监听提交的排序信息
       bus.$on('sortsubmit', function (first, second) {
         console.log(first + ' ' + second)
+        let price;
+        let sort;
+        switch (first){
+          case 0: price = 'lowest_price'; break;
+          case 1: price = 'highest_price'; break;
+          case 2: price = 'avg_price';break;
+        }
+        switch (second){
+          case 3: sort = false;break;
+          case 4: sort = true;break;
+        }
+        let params = {
+          order_by: price,
+          reversed: sort
+        };
+        _this.dataList = [];
+        request(API.vegetable, {order_by: price, reversed: sort},'GET', _this);
       });
 
       //监听搜索框输入值,发送请求进行查询
@@ -120,7 +137,7 @@
       method: method,
       data: data,
       success (res) {
-        console.log(res)
+//        console.log(res)
         _this.loading = false;
 
         //如果返回内容为空,重新加载前一天的数据
