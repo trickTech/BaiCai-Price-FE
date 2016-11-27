@@ -1,5 +1,7 @@
 # baicai-price
 
+[build-info](https://travis-ci.org/trickTech/BaiCai-Price-FE.svg?branch=master)
+
 > A Vue.js project
 
 ## Build Setup
