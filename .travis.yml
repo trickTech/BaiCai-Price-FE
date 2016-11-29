@@ -11,4 +11,7 @@ before_install:
 - npm install
 script:
 - npm run build
+deploy:
+  on:
+    branch: release
 - scp -r dist/* root@zhangmengke.cn:/home/wwwroot/vegetable.zhangmengke.cn/
