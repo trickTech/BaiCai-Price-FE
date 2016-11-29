@@ -12,6 +12,7 @@ before_install:
 script:
 - npm run build
 deploy:
+  skip_cleanup: true
   provider: script
   script: scp -r dist/* root@zhangmengke.cn:/home/wwwroot/vegetable.zhangmengke.cn/
   on:
